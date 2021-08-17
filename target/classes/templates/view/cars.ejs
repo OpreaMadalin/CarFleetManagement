@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <%carsList.forEach(car=> {%>
+        <p>
+            <%= car.brand %>
+                <%= car.model %>
+        </p>
+        <%})%>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Brand</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <%carsList.forEach(car=> {%>
+                        <p>
+                            <tr>
+                                <th scope="row">
+                                    <%= car._id %>
+                                </th>
+                                <td>
+                                    <%= car.brand %>
+                                </td>
+                                <td>
+                                    <%= car.model %>
+                                </td>
+                            </tr>
+                        </p>
+                        <%})%>
+
+                </tbody>
+            </table>
+</body>
+
+</html>

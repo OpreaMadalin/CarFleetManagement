@@ -12,7 +12,6 @@
 /home/dmoprea/Downloads/CarFleetManagement/src/main/java/com/company/controller/authController/AuthController.java
 /home/dmoprea/Downloads/CarFleetManagement/src/main/java/com/company/exception/NotFoundException.java
 /home/dmoprea/Downloads/CarFleetManagement/src/main/java/com/company/ApplicationController.java
-/home/dmoprea/Downloads/CarFleetManagement/src/main/java/com/company/controller/authController/CarController.java
 /home/dmoprea/Downloads/CarFleetManagement/src/main/java/com/company/controller/databaseController/MongoController.java
 /home/dmoprea/Downloads/CarFleetManagement/src/main/java/com/company/CarFleetManagementApplication.java
 /home/dmoprea/Downloads/CarFleetManagement/src/main/java/com/company/exception/UnauthorizedException.java

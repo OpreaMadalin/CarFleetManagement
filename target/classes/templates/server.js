@@ -15,7 +15,7 @@ const fleetSchema = {
 const Car = mongoose.model("Car", fleetSchema);
 
 
-app.get('/cars1', (req, res) => {
+app.get('/', (req, res) => {
     Car.find({}, function (err, cars) {
         res.render('cars', {
             carsList: cars

@@ -1,4 +1,3 @@
-com/company/controller/authController/CarController.class
 com/company/model/login/LoginResponse.class
 com/company/controller/tokenController/TokenManager.class
 com/company/controller/authController/AuthController.class

@@ -152,24 +152,8 @@
                     <th><i class="icon_table"></i> Actions</th>
                 </tr>
                 </thead>
-                <tr th:each="vehicleModel:${vehicleModels}">
-                    <td th:text="${vehicleModel.id}">Id</td>
-                    <td th:text="${vehicleModel.brand}">Brand</td>
-                    <td th:text="${vehicleModel.model}">Model</td>
-                    <td>
-                        <div class="btn-group">
-                            <a class="btn btn-primary" id="editButton"
-                               th:href="@{/vehicleModels/findById/(id=${vehicleModel.id})}"><i
-                                    class="icon_pencil-edit"></i> </a>
-                            <a class="btn btn-success" id="detailsButton"
-                               th:href="@{/vehicleModels/findById/(id=${vehicleModel.id})}"><i
-                                    class="icon_document_alt"></i> </a>
-                            <a class="btn btn-danger" id="deleteButton"
-                               th:href="@{/vehicleModels/delete/(id=${vehicleModel.id})}"><i
-                                    class="icon_close_alt2"></i> </a>
-
-                        </div>
-                    </td>
+                <tr th:each="getVehicles:${getVehicles}" method="get">
+                    <td th:text="${getVehicles}" >Brand</td>
                 </tr>
             </table>
             <!-- page end-->

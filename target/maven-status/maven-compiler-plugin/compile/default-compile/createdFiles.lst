@@ -1,5 +1,6 @@
 com/company/model/login/LoginResponse.class
 com/company/controller/tokenController/TokenManager.class
+com/company/controller/vehicleController/Servlet1.class
 com/company/controller/authController/AuthController.class
 com/company/model/vehicle/VehicleRequestBody.class
 com/company/controller/hashersController/HashAlgorithm.class

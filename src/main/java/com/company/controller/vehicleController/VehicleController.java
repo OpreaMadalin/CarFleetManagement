@@ -3,8 +3,6 @@ package com.company.controller.vehicleController;
 import com.company.controller.databaseController.MongoController;
 import com.company.model.vehicle.VehicleRequestBody;
 import org.bson.Document;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,11 +21,16 @@ public class VehicleController {
         return new RedirectView("/cars", true);
     }
 
+    //Get Vehicle Brands
     @GetMapping("/getVehicles")
-    public String getVehicles(Model model) {
+    public ArrayList<String> getVehicles() {
+
         MongoController mc = new MongoController();
         ArrayList<Document> cars = mc.getVehicles();
-        model.addAttribute("cars", cars);
-        return "vehicleModel";
+        ArrayList<String> carDetails = new ArrayList<>();
+        for(Document car : cars){
+            carDetails.add(car.get("brand").toString());
+        }
+        return carDetails;
     }
 }

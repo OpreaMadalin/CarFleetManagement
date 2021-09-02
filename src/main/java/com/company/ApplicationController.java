@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ApplicationController {
 
+    @GetMapping("/inde.jsp")
+    public String goCars() {
+        return "inde";
+    }
+
     @GetMapping("/index")
     public String goHome() {
         return "index";

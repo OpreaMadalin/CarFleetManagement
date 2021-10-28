@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.company.CarFleetManagementApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.021 s - in com.company.CarFleetManagementApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.068 s - in com.company.CarFleetManagementApplicationTests

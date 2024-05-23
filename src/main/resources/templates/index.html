@@ -61,14 +61,10 @@
                                                     <span class="profile-ava">
                                                         <img alt="" th:src="@{/guest}" height="40" width="40">
                                                     </span>
-                        <!--                        <span class="username" th:text="${#authentication.getPrincipal().getUsername}">Guest</span>-->
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <div class="log-arrow-up"></div>
-                        <li class="border-top">
-                            <a th:href="@{/profile}"><i class="icon_profile"></i>My Profile</a>
-                        </li>
                         <li>
                             <a th:href="@{/login}"><i class="icon_key_alt"></i>Log Out</a>
                         </li>
@@ -92,21 +88,6 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" class="">
-                        <i class="icon_document_alt"></i>
-                        <span>Vehicles</span>
-                        <span class="menu-arrow arrow_carrot-right"></span>
-                    </a>
-                    <ul class="sub">
-                        <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-                        <li><a class="" th:href="@{/vehicleMaintenances}">Maintenance</a></li>
-                        <li><a class="" th:href="@{/vehicleMakes}">Vehicle Brand</a></li>
-                        <li><a class="" th:href="@{/vehicleTypes}">Vehicle Type</a></li>
-                        <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
-                        <li><a class="" th:href="@{/vehicleStatuses}">Vehicle Status</a></li>
-                    </ul>
-                </li>
 
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
@@ -115,7 +96,18 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" th:href="@{/users}">User</a></li>
+                        <li><a class="" th:href="@{/users}">Users Details</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_document_alt"></i>
+                        <span>Vehicles</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/cars}">Vehicles Details</a></li>
                     </ul>
                 </li>
 
@@ -135,6 +127,7 @@
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a th:href="@{/index}">Home</a></li>
                         <li><i class="fa fa-laptop"></i><a th:href="@{/cars}">Vehicles</a></li>
+                        <li><i class="fa fa-laptop"></i><a th:href="@{/users}">Users</a></li>
                     </ol>
                 </div>
             </div>
@@ -148,20 +141,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--Calendar-->
-            <!--            <div class="col-md-6 portlets">-->
-            <!--                <div class="panel panel-default">-->
-            <!--                    <div class="panel-heading">-->
-            <!--                        <h2><strong>Calendar</strong></h2>-->
-            <!--                    </div>-->
-            <!--                    <br><br><br>-->
-            <!--                    <div class="panel-body">-->
-            <!--                        <div id="calendar"></div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--End Calendar-->
 
         </section>
 
@@ -256,24 +235,6 @@
           }
         });
       });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 </body>

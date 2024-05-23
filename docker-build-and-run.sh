@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker stop carfleetmanagement-rest-container
+
 rm -r ./target/
 ./mvnw package
 

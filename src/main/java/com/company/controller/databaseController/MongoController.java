@@ -1,10 +1,8 @@
 package com.company.controller.databaseController;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
@@ -20,15 +18,18 @@ public class MongoController {
     private final MongoClient client;
     private final String dbName;
 
-    public MongoController(MongoCredentials mongoCredentials) {
-        this.client = new MongoClient(new MongoClientURI(mongoCredentials.getConnectionURI()));
-        this.dbName = mongoCredentials.getDbName();
-    }
-
     public MongoController() {
         MongoCredentials envCreds = getEnvCreds();
-        this.client = new MongoClient(new MongoClientURI(envCreds.getConnectionURI()));
-        this.dbName = envCreds.getDbName();
+        String dbName = "devDB";
+        String settings = "mongodb+srv://madalinoprea:pass@cluster0.9oiuuhp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+//        MongoClientSettings settings = MongoClientSettings.builder()
+//                .applyConnectionString(new ConnectionString(envCreds.getConnectionURI()))
+//                .build();
+
+        this.client = MongoClients.create(settings);
+        this.dbName = dbName;
+//        this.dbName = envCreds.dbName;
 
     }
 
@@ -77,6 +78,39 @@ public class MongoController {
 
         MongoCollection<Document> carsCollection = getCarsCollection();
         MongoCursor<Document> cursor = carsCollection.find().cursor();
+        ArrayList<Document> result = new ArrayList<>();
+
+        try {
+            while (cursor.hasNext()) {
+                Document currentDoc = cursor.next();
+                result.add(currentDoc);
+            }
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        } finally {
+            cursor.close();
+        }
+        return result;
+    }
+
+    public void deleteVehicle(String carId) {
+        MongoCollection<Document> carsCollection = getCarsCollection();
+        try (MongoCursor<Document> cursor = carsCollection.find().cursor()) {
+            while (cursor.hasNext()) {
+                Document currentCar = cursor.next();
+                String currentCarId = currentCar.get("_id").toString();
+                if (carId.equals(currentCarId)) {
+                    carsCollection.findOneAndDelete(currentCar);
+                }
+            }
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Document> getUsers() {
+        MongoCollection<Document> usersCollection = getUsersCollection();
+        MongoCursor<Document> cursor = usersCollection.find().cursor();
         ArrayList<Document> result = new ArrayList<>();
 
         try {

@@ -12,8 +12,18 @@ public class ApplicationController {
     }
 
     @GetMapping("/cars")
-    public String goProfile() {
+    public String goCars() {
         return "cars";
+    }
+
+    @GetMapping("/users")
+    public String goUser() {
+        return "users";
+    }
+
+    @GetMapping("/profile")
+    public String goProfile() {
+        return "profile";
     }
 
     @GetMapping("/login")

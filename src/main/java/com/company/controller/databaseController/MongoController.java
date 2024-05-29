@@ -20,17 +20,23 @@ public class MongoController {
 
     public MongoController() {
         MongoCredentials envCreds = getEnvCreds();
-        String dbName = "devDB";
-        String settings = "mongodb+srv://madalinoprea:pass@cluster0.9oiuuhp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-//        MongoClientSettings settings = MongoClientSettings.builder()
-//                .applyConnectionString(new ConnectionString(envCreds.getConnectionURI()))
-//                .build();
+        if (null == envCreds.getDbName() || null == envCreds.getConnectionURI()) {
+            String connectionUri = "mongodb+srv://madalinoprea:pass@cluster0.9oiuuhp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+            MongoClientSettings settings = MongoClientSettings.builder()
+                    .applyConnectionString(new ConnectionString(connectionUri))
+                    .build();
 
-        this.client = MongoClients.create(settings);
-        this.dbName = dbName;
-//        this.dbName = envCreds.dbName;
+            this.client = MongoClients.create(settings);
+            this.dbName = "devDB";
+        } else {
+            MongoClientSettings settings = MongoClientSettings.builder()
+                    .applyConnectionString(new ConnectionString(envCreds.getConnectionURI()))
+                    .build();
 
+            this.client = MongoClients.create(settings);
+            this.dbName = envCreds.getDbName();
+        }
     }
 
     private MongoCredentials getEnvCreds() {

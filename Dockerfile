@@ -8,4 +8,4 @@ WORKDIR /project
 
 RUN ls
 
-CMD MONGO_USER="madalinoprea" MONGO_PASSWORD="415X715QbMnop" MONGO_CLUSTER="cluster0.9oiuuhp.mongodb.net" MONGO_DB_NAME="devDB" java -jar carFleetManagement-0.0.1-SNAPSHOT.jar
+CMD MONGO_USER="madalinoprea" MONGO_PASSWORD="pass" MONGO_CLUSTER="cluster0.9oiuuhp.mongodb.net" MONGO_DB_NAME="devDB" java -jar carFleetManagement-0.0.1-SNAPSHOT.jar
